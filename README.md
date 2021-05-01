@@ -116,6 +116,20 @@ Adjust the "Before Launch" items to be sorted in the following order:
 
 Now you can build the project as you usually do and it should work! :wink: :+1:
 
+### Dynamic Browser Updates ###
+
+A useful trick is to build the Angular resources continuously by running this command 
+in the terminal:
+
+```shell
+$ ng build --watch
+```
+
+While this command is running the updates are built as soon as you change the files and pushed 
+to `build/resources/main/static` where they can be picked up by Spring Boot so you don't 
+need to rerun your app every time you make a javascript, html or css change. Awesome, isn't it?
+:smiley:
+
 ## Copyright and license ##
 
 Code and documentation copyright 2021 Fabio M. Blanco. Code released under the
