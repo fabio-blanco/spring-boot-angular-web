@@ -133,4 +133,4 @@ need to rerun your app every time you make a javascript, html or css change. Awe
 ## Copyright and license ##
 
 Code and documentation copyright 2021 Fabio M. Blanco. Code released under the
-[MIT License](https://github.com/fabio-blanco/spring-boot-angular-web/blob/main/LICENSE)
+[MIT License](https://github.com/fabio-blanco/spring-boot-angular-web/blob/master/LICENSE)
