@@ -86,7 +86,7 @@ frontend {
 ```
 
 This tells the frontend plugin to download the node with the version 14.16.1
-inside a note directory and use it to build the app, so you don't have to
+inside a node directory and use it to build the app, so you don't need to
 have previously installed it in your machine nor even need a global node 
 installation, and it also avoids a crash because of same change in node api.
 Alternatively if you want to use a global node installation, you can change the above
