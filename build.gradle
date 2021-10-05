@@ -20,6 +20,10 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
+tasks.named('assembleFrontend') {
+    it.outputs.dir('build/resources/main/static/')
+}
+
 frontend {
     nodeVersion = '14.16.1'
     assembleScript = 'run build'

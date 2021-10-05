@@ -76,11 +76,25 @@ plugins {
 ```
 
 Create the frontend section and configure de node version and the build script (this is the 
-build script declared in the package.json scripts section):
+build script declared in the `package.json` scripts section):
 
 ```groovy
 frontend {
     nodeVersion = '14.16.1'
+    assembleScript = 'run build'
+}
+```
+
+This tells the frontend plugin to download the node with the version 14.16.1
+inside a note directory and use it to build the app, so you don't have to
+have previously installed it in your machine nor even need a global node 
+installation, and it also avoids a crash because of same change in node api.
+Alternatively if you want to use a global node installation, you can change the above
+config to this:
+
+```groovy
+frontend {
+    nodeDistributionProvided=true
     assembleScript = 'run build'
 }
 ```
@@ -91,6 +105,22 @@ Edit the angular.json file and change the outputPath from the build options to p
 desired directory. The created configuration may be pointing to "dist/client", just change it
 to "build/resources/main/static", so the compilation of the Angular files will be generated
 on the static folder of your Spring boot build folder.
+
+In order to avoid some unexpected build behaviors also tell the `assembleFrontend` task from 
+the frontend plugin where is the build script new location. Do this by editing the
+`build.gradle` file and adding this right above the configuration made in the
+last step:
+
+```groovy
+tasks.named('assembleFrontend') {
+    it.outputs.dir('build/resources/main/static/')
+}
+
+frontend {
+    nodeVersion = '14.16.1'
+    assembleScript = 'run build'
+}
+```
 
 That's it. You can now test it by running gradle build to see te build folder been correctly
 generated.
